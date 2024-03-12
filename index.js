@@ -16,11 +16,15 @@ function changeDifficulty() {
         if(difficulty === "Ler"){
             check_Mai.checked = true;
             check_Ma.checked = true;
-            check_Num.checked = false;
+            check_Num.checked = true;
             check_Simb.checked = false;
+
         }
         if(difficulty === "Pronunciar"){
-
+            check_Mai.checked = true;
+            check_Ma.checked = true;
+            check_Num.checked = false;
+            check_Simb.checked = false;
         }
         if(difficulty === "Todos"){
             check_Mai.checked = true;
@@ -29,3 +33,4 @@ function changeDifficulty() {
             check_Simb.checked = true;
         }
 }// essa função funciona de forma que quando verifica qual é a verdadeira ela aplicará seu coportamento
+
