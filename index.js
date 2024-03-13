@@ -3,6 +3,8 @@ var check_Mai = document.getElementById("L_Maiuscula")
 var check_Ma = document.getElementById("L_Minuscula")
 var check_Num = document.getElementById("Numeros")
 var check_Simb = document.getElementById("Simbolos")
+var r_barra = document.getElementById("barra")
+var n_Simb = document.getElementById("q_Numeros")
 
 const difficultyElements = document.querySelectorAll('input[name="Dificuldade"]');
     difficultyElements.forEach((element) => {
@@ -34,3 +36,6 @@ function changeDifficulty() {
         }
 }// essa função funciona de forma que quando verifica qual é a verdadeira ela aplicará seu coportamento
 
+r_barra.addEventListener('input', function(){
+    n_Simb.value = this.value;
+})
