@@ -5,8 +5,8 @@ var check_Mai = document.getElementById("L_Maiuscula");
 var check_Ma = document.getElementById("L_Minuscula");
 var check_Num = document.getElementById("Numeros");
 var check_Simb = document.getElementById("Simbolos");
-var r_barra = document.getElementById("barra");
 
+const r_barra = document.querySelector(".barra input");
 const input_Senha = document.querySelector(".input_box input");
 const confs = document.querySelectorAll(".conf input");
 var gerar_Senha = document.querySelector(".gerador");
@@ -92,11 +92,36 @@ function changeDifficulty() {// otimizar a função, deixar tudo true e ficar mu
 }
 // essa função funciona de forma que quando verifica qual é a verdadeira ela aplicará seu coportamento
 
-gerar_Senha.addEventListener("click", () => {gerarsenha()});
+const test_Char = {
+    L_Minuscula : /[a-z]/,
+    L_Maiuscula : /[A-Z]/,
+    Numeros : /[0-9]/,
+    Simbolos: /[!@#$%¨&*(){}?:;/|'<>.,]/
+}
+const Forca = () =>{
+    r_barra.id = r_barra.value <= 24 ? "Fraca" : r_barra.value <= 49 ? "Media" : "Forte";
+}
 
+const att_Forca = () =>{
+    var count = 0;
+    input_Senha.length
+    for(const char of Object.values(test_Char)){
+        if(char.test(input_Senha.value)){
+            count += 10;
+        }
+    }
+    r_barra.setAttribute("value", count);
+    Forca();
+    return r_barra;
+}
+
+
+gerar_Senha.addEventListener("click", () => {gerarsenha()});
+gerar_Senha.addEventListener("click", () => {att_Forca()});
 
 window.addEventListener("load", function() {
     document.getElementById("d_Pronunciar").checked = true;
     changeDifficulty();
     gerarsenha();
+    att_Forca();
 })
