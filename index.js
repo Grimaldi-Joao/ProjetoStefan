@@ -104,11 +104,20 @@ const Forca = () =>{
 
 const att_Forca = () =>{
     var count = 0;
-    input_Senha.length
+    
     for(const char of Object.values(test_Char)){
         if(char.test(input_Senha.value)){
             count += 10;
         }
+    }
+    const valores=[8,12,16,20,26]
+    for(const tam of valores){
+        if (input_Senha.value.length >= tam) {
+            count += 10;
+        }
+    }
+    if (check_dupli.checked === true) {
+        count += 10;
     }
     r_barra.setAttribute("value", count);
     Forca();
