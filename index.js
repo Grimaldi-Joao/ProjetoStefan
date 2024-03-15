@@ -1,24 +1,24 @@
-var dificuldade = document.querySelector("input[name='Dificuldade']")
+var dificuldade = document.querySelector("input[name='Dificuldade']");
 // uma variavel que irá pagar todas as variaveis com o nome Dificuldade
-var check_dupli = document.getElementById("Repetido")
-var check_Mai = document.getElementById("L_Maiuscula")
-var check_Ma = document.getElementById("L_Minuscula")
-var check_Num = document.getElementById("Numeros")
-var check_Simb = document.getElementById("Simbolos")
-var r_barra = document.getElementById("barra")
-var n_Simb = document.getElementById("q_Numeros")
-var t_senha = document.getElementById("tamanho")
+var check_dupli = document.getElementById("Repetido");
+var check_Mai = document.getElementById("L_Maiuscula");
+var check_Ma = document.getElementById("L_Minuscula");
+var check_Num = document.getElementById("Numeros");
+var check_Simb = document.getElementById("Simbolos");
+var r_barra = document.getElementById("barra");
 
+const input_Senha = document.querySelector(".input_box input");
 const confs = document.querySelectorAll(".conf input");
+var gerar_Senha = document.querySelector(".gerador");
+const t_senha = document.querySelector(".tamanho input");
 
 
 
 const Characters ={
-    minusculo:"abcdefghijklmnopqrsutvxwyzç",
-    maiusculo:"ABCDEFGHIJKLMNOPQRSUTVXWYZÇ",
-    numeros:"0123456789",
-    simbolus:"!@#$%¨&*(){}?:;/|'\'<>.,°",
-    ambiguos:"ilo0°cç"
+    L_Minuscula:"abcdefghijklmnopqrsutvxwyzç",
+    L_Maiuscula:"ABDEFGHIJKLMNPQRSUTVXWYZÇ",
+    Numeros:"0123456789",
+    Simbolos:"!@#$%¨&*(){}?:;/|'<>.,",
 }
 
 const gerarsenha = () => {
@@ -27,27 +27,35 @@ const gerarsenha = () => {
         excluir_dupli = false,
         tamnho_senha = t_senha.value;
 
+        const difficulty = document.querySelector('input[name="Dificuldade"]:checked').value;
+
         confs.forEach(conf =>{
             if(conf.checked){
-                if(conf.id !== "Repetido"){
+                if(conf.id !== "Repetido" && difficulty !== "Ler"){
                     static_senha += Characters[conf.id];
-                }else{
+                }else if (difficulty === "Ler") {
+                    static_senha += Characters[conf.id].replace(/[/ilo0O°cçC/]/g, "");
+                }
+                else{
                     excluir_dupli = true;
                 }
             }
-        });
+            });
 
         for (let i = 0; i < tamnho_senha; i++) {
-            let difficulty = document.querySelector('input[name="Dificuldade"]:checked').value;
             let random_Char = static_senha[Math.floor(Math.random() * static_senha.length)]
             if(excluir_dupli){
-            !random_senha.includes(random_Char) || random_Char == " " ? random_senha += random_Char : i--
-            }else if(difficulty === "Ler"){
-
+            if (!random_senha.includes(random_Char)) {
+                random_senha += random_Char;
+            }else{
+                i--;
+            }
             }else{
                 random_senha += random_Char;
             }
         }
+        
+        input_Senha.value = random_senha;
         
 }
 
@@ -60,7 +68,7 @@ const difficultyElements = document.querySelectorAll('input[name="Dificuldade"]'
     });
 //essa função serve para passar pela variavel dificuldade e vê qual estar carregada
 
-function changeDifficulty() {
+function changeDifficulty() {// otimizar a função, deixar tudo true e ficar mudando para false
     let difficulty = document.querySelector('input[name="Dificuldade"]:checked').value;
         if(difficulty === "Ler"){
             check_Mai.checked = true;
@@ -84,43 +92,11 @@ function changeDifficulty() {
 }
 // essa função funciona de forma que quando verifica qual é a verdadeira ela aplicará seu coportamento
 
-n_Simb.addEventListener('input', function(){
-    var key = n_Simb.value;
-    r_barra.value = 0;
-    
-    switch (key) {
+gerar_Senha.addEventListener("click", () => {gerarsenha()});
 
-        case (key<8):
-            r_barra.value = 0;
-        break;
 
-        case (8<=key<=11):
-            r_barra.value =+ 10;
-            break;
-
-        case (12<=key<=15) :
-            r_barra.value =+ 20;
-            break;
-        
-        case (16<=key<=20):
-            r_barra.value =+30;
-            break;
-
-        case (21<=key<=25):
-            r_barra.value =+40
-            break;
-
-        case (26<=key<=50):
-            r_barra.value =+ 50
-            break;
-
-        case (50<key):
-            r_barra.value = 0;
-            break;
-
-        default:
-            break;
-    }
-    r_barra.value = this.value;
-    
+window.addEventListener("load", function() {
+    document.getElementById("d_Pronunciar").checked = true;
+    changeDifficulty();
+    gerarsenha();
 })

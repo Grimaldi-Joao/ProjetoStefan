@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
     <title>Gerador de Senhas</title>
     <h1><u>Gerador de Senhas</u></h1>
         <samp>Melhor Site para criar sua senha</samp>
@@ -12,14 +13,19 @@
     <h1>Senha:</h1>
 
     <div class="input_box">
-    <input type="text" id="senha" disabled>
-    <span class="material-symbols-rounded">copy</span>
+    <input type="text" id="box_senha" disabled>
+    <span class="material-symbols-rounded">copy_all</span>
 </div>
-<div>
-    <input type="range" id="tamanho" max="50" min="8" value="21" step="1"> N: <input type="text" id="q_Numeros" disabled>
-    <br>
+<div class="tamanho">
+    <input type="range" max="50" min="8" value="21" step="1">
+    <div class="detalhe">
+        <label for="title">Tamanho:</label>
+        <span></span>
+        </div>
+        <br>
+    </div>
     <input type="range" disabled name="barra" id="barra" max="100" min="0" value="10">    
-</div>
+
 <div class="formato_senha">
     <label for="title"><b>Formato</b></label>
 </div>
@@ -45,7 +51,7 @@
                 <input type="checkbox" id="Simbolos"> <b>Simbolos</b>
             </li>
             <li class="conf">
-                <input type="checkbox" id="Repetido"> <b>Letras Repetidas</b>
+                <input type="checkbox" id="Repetido"> <b>Não Ter Letras Repetidas</b>
             </li>
         </ul>
 </div>
