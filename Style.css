@@ -1,0 +1,71 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', 'Times New Roman', Times, serif;
+}
+body{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+    background: #37a0d1;
+}
+.conteiner{
+    width: 500px;
+    background: #fff;
+    border-radius: 8px;
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.05);
+}
+
+.conteiner h1{
+    font-weight: 600;
+    font-size: x-large;
+    padding: auto;
+    border-bottom: #fff;
+}
+
+.gerador{
+    margin: 1.25rem 1.75rem;
+}
+
+div.barra input#Fraca{
+    background: #e64a4a;
+}
+
+div.barra input#Media{
+    background: #f1c80b;
+}
+
+div.barra input#Forte{
+    background: #43A047;
+}
+
+div.conf_senha ul.confs{
+    list-style-type: none;
+}
+
+div.section-bar{
+    height: 20px;
+    width: 400px;
+    border: 1px solid;
+    border-radius: 15px;
+}
+div.section-bar div.barra{
+    width: 30%;
+    background: #e64a4a;
+    height: 20px;
+    border-radius: 15px
+}
+
+/* div.section-bar div.barra#Fraco::before{
+    background: #e64a4a;
+}
+div.section-bar div.barra#Medio::before{
+    background: #f1c80b;
+}
+div.section-bar div.barra#Forte::before{
+    background: #43A047;
+}

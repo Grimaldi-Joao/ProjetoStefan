@@ -4,59 +4,64 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Rounded" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css">
     <title>Gerador de Senhas</title>
-    <h1><u>Gerador de Senhas</u></h1>
-        <samp>Melhor Site para criar sua senha</samp>
 </head>
 <body>
-
-    <h1>Senha:</h1>
-
-    <div class="input_box">
-    <input type="text" id="box_senha" disabled>
-    <span class="material-symbols-rounded">copy_all</span>
-</div>
-<div class="tamanho">
-    <input type="range" max="50" min="8" value="21" step="1">
-    <div class="detalhe">
-        <label for="title">Tamanho:</label>
-        <span></span>
-        </div>
-        <br>
-    </div>
-    <div class="barra">
-    <input type="range" disabled name="barra" id="barra" value="0" max="100" min="0"> 
-</div>
-<div class="formato_senha">
-    <label for="title"><b>Formato</b></label>
-</div>
-<div class="set_Dif">
-    <input type="radio" name="Dificuldade" id= "d_Pronunciar" value="Pronunciar"> <b>Fácil de Pronunciar</b>
-    <input type="radio" name="Dificuldade" id= "d_Ler" value= "Ler"> <b>Fácil de Ler</b>
-    <input type="radio" name="Dificuldade" id= "d_Todos" value= "Todos"> <b>Todos os Caracteres</b>
-</div>
-<br>
-    <div class="conf_senha">
-        <label for="title"><b>Configurações da Senha</b></label>
-            <ul class="confs">
+    <div class="conteiner">
+        <h1><u>Gerador de Senhas</u></h1>
+        <samp>Melhor Site para criar sua senha</samp>
+        <div class="Gerador">
+            <h2>Senha:</h2>
+            <div class="input_box">
+                <input type="text" id="box_senha" disabled>
+                <span class="material-symbols-rounded">copy_all</span>
+            </div>
+            <div class="tamanho">
+                <input type="range" max="50" min="8" value="21" step="1">
+                    <div class="detalhe">
+                        <label for="title">Tamanho:</label>
+                        <span id="Tam"></span>
+                    </div>
+            <br>
+            </div>
+            <div class ="section-bar"> 
+                <div class="barra" id="Fraco">
+                </div>
+            </div>
+            <div class="formato_senha">
+                <label for="title"><b>Formato</b></label>
+            </div>
+            <div class="set_Dif">
+                <input type="radio" name="Dificuldade" id= "d_Pronunciar" value="Pronunciar"> <b>Fácil de Pronunciar</b>
+                <input type="radio" name="Dificuldade" id= "d_Ler" value= "Ler"> <b>Fácil de Ler</b>
+                <input type="radio" name="Dificuldade" id= "d_Todos" value= "Todos"> <b>Todos os Caracteres</b>
+            </div>
+            <br>
+            <div class="conf_senha">
+            <label for="title"><b>Configurações da Senha</b></label>
+                <ul class="confs">
+                    <li class="conf">
+                    <input type="checkbox" id="L_Maiuscula"> <b data-tooltip="LETRAS: ASD">Letra Maiúscula</b>
+                </li>
                 <li class="conf">
-                <input type="checkbox" id="L_Maiuscula"> <b>Letra Maiúscula</b>
-            </li>
-            <li class="conf">
-                <input type="checkbox" id="L_Minuscula"> <b>Letra Minúscula</b>
-            </li>
-            <li class="conf">
-                <input type="checkbox" id="Numeros"> <b>Numeros</b>
-            </li>
-            <li class="conf">
-                <input type="checkbox" id="Simbolos"> <b>Simbolos</b>
-            </li>
-            <li class="conf">
-                <input type="checkbox" id="Repetido"> <b>Não Ter Letras Repetidas</b>
-            </li>
-        </ul>
-</div>
-<button class="gerador">Gerar Senha</button>
+                    <input type="checkbox" id="L_Minuscula"> <b data-tooltip="lestras: asd">Letra Minúscula</b>
+                </li>
+                <li class="conf">
+                    <input type="checkbox" id="Numeros"> <b data-tooltip="Numeros de 0 a 9">Numeros</b>
+                </li>
+                <li class="conf">
+                    <input type="checkbox" id="Simbolos"> <b data-tooltip="Simbolos como: !@#$%">Simbolos</b>
+                </li>
+                <li class="conf">
+                    <input type="checkbox" id="Repetido"> <b>Não Ter Letras Repetidas</b>
+                </li>
+            </ul>
+            </div>
+            <button class="gerador">Gerar Senha</button>
+        </div>
+    </div>
+
     <script src="./index.js"></script>
 </body>
 </html>
