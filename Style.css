@@ -68,4 +68,10 @@ div.section-bar div.barra#Medio::before{
 }
 div.section-bar div.barra#Forte::before{
     background: #43A047;
+}*/
+
+
+div.tamanho div.detalhe{
+    display: flex;
+    justify-content: space-between;
 }

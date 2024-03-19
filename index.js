@@ -140,7 +140,7 @@ const att_Forca = () =>{
     }
     largura_DaBarra = cont;
     r_barra.style.width = cont +"px";
-    Forca();
+    Forca(cont);
     return r_barra;
 }
 
@@ -153,6 +153,11 @@ const copiar = () =>{
     })
 }
 
+const att_Tamanho = () =>{
+    document.querySelector(".tamanho span").innerText = t_senha.value;
+}
+
+t_senha.addEventListener("input",() => {att_Tamanho()})
 icone_Copiar.addEventListener("click", () => {copiar()})
 gerar_Senha.addEventListener("click", () => {gerarsenha()});
 gerar_Senha.addEventListener("click", () => {att_Forca()});
@@ -162,4 +167,5 @@ window.addEventListener("load", function() {
     changeDifficulty();
     gerarsenha();
     att_Forca();
+    att_Tamanho();
 })
